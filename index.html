@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Assignment #6: jQuery (Selectors, Effects, Animations)</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4ece1;
+      color: #333333;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .container {
+      max-width: 800px;
+      width: 100%;
+      background: #ffffff;
+      border: 4px solid #5a3825;
+      border-radius: 8px;
+      padding: 30px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      font-size: 26px;
+      color: #3d271d;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+    p.subtitle {
+      font-size: 15px;
+      color: #666666;
+      text-align: center;
+      margin-bottom: 25px;
+    }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .card {
+      border: 2px solid #deb887;
+      border-radius: 6px;
+      padding: 20px;
+      background-color: #fffaf2;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card h2 {
+      font-size: 20px;
+      color: #5a3825;
+      margin-bottom: 10px;
+    }
+    .card p {
+      font-size: 14px;
+      color: #555555;
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+    .card ul {
+      margin-left: 18px;
+      margin-bottom: 16px;
+      font-size: 13px;
+      color: #444444;
+    }
+    .card li {
+      margin-bottom: 4px;
+    }
+    .btn-launch {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      background-color: #5a3825;
+      color: #ffffff;
+      padding: 10px 16px;
+      border-radius: 4px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    .btn-launch:hover {
+      background-color: #3d271d;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Assignment #6: jQuery</h1>
+    <p class="subtitle">Selectors, Traversal, Effects, and Animations</p>
+
+    <div class="cards-grid">
+      <div class="card">
+        <div>
+          <h2>Task 1: Selector Detective</h2>
+          <p>Birthday party at the house (2 floors, 4 rooms, 21 guests).</p>
+          <ul>
+            <li>Dynamic house building from JavaScript array</li>
+            <li>20 case investigation buttons</li>
+            <li>Single jQuery chain solutions querying the DOM</li>
+            <li>Jumping animate() effects for discovered guests</li>
+            <li>Miras smooth fade-in and Natasha fade-out</li>
+            <li>Birthday cake thief identification</li>
+          </ul>
+        </div>
+        <a class="btn-launch" href="task1/index.html">Open Task 1</a>
+      </div>
+
+      <div class="card">
+        <div>
+          <h2>Task 2: The Party in Motion</h2>
+          <p>Interactive animations and effects on top of Task 1.</p>
+          <ul>
+            <li>Spotlight effect: fade other guests to 20% in 0.3s</li>
+            <li>Clear button brings all guests back to 100%</li>
+            <li>Expandable guest detail card growing out of avatar</li>
+            <li>Close modal on Esc key or click outside</li>
+            <li>Flying guest movement across house with smooth gap opening/closing</li>
+            <li>Sort by arrival time sliding animation (no jumps)</li>
+            <li>Rapid clicks queue prevention</li>
+          </ul>
+        </div>
+        <a class="btn-launch" href="task2/index.html">Open Task 2</a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

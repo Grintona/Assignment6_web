@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Assignment 6 - Task 1: Selector Detective</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="jquery-3.7.1.min.js"></script>
+</head>
+<body>
+
+  <h1 class="page-title">Task 1: Selector Detective (jQuery Selectors &amp; Traversal)</h1>
+
+  <div class="house">
+    <div class="roof">The Party, 19:30 - 22:30</div>
+
+    <div class="floor" id="floor-2">
+      <div class="floor-label">FLOOR 2</div>
+      <div class="room" id="balcony">
+        <div class="room-header">Balcony</div>
+        <div class="guest-list"></div>
+      </div>
+      <div class="room" id="hall">
+        <div class="room-header">Hall</div>
+        <div class="guest-list"></div>
+      </div>
+    </div>
+
+    <div class="floor" id="floor-1">
+      <div class="floor-label">FLOOR 1</div>
+      <div class="room" id="kitchen">
+        <div class="room-header">Kitchen</div>
+        <div class="guest-list"></div>
+      </div>
+      <div class="room" id="living-room">
+        <div class="room-header">Living room</div>
+        <div class="guest-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="legend">
+    <div class="legend-group">
+      <span>Clothing color:</span>
+      <span class="color-dot dot-red"></span>
+      <span class="color-dot dot-blue"></span>
+      <span class="color-dot dot-green"></span>
+      <span class="color-dot dot-black"></span>
+      <span class="color-dot dot-yellow"></span>
+      <span class="color-dot dot-purple"></span>
+    </div>
+    <div class="legend-group">
+      <svg class="thing-icon" viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="2"><rect x="6" y="2" width="12" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg>
+      <span>Phone</span>
+    </div>
+    <div class="legend-group">
+      <svg class="thing-icon" viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="2"><circle cx="6" cy="12" r="4"/><circle cx="18" cy="12" r="4"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+      <span>Glasses</span>
+    </div>
+    <div class="legend-group">
+      <svg class="thing-icon" viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="2"><path d="M6 8h12l1 12H5L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+      <span>Bag</span>
+    </div>
+    <div class="legend-group">
+      <svg class="thing-icon" viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="2"><path d="M4 6h12v9a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V6z"/><path d="M16 8h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-2"/></svg>
+      <span>Cup</span>
+    </div>
+    <div class="legend-group">
+      <svg class="thing-icon" viewBox="0 0 24 24" fill="#8b4513"><circle cx="4" cy="16" r="2"/><circle cx="10" cy="12" r="1.5"/><circle cx="16" cy="15" r="2"/><circle cx="20" cy="10" r="1.5"/></svg>
+      <span>Cake crumbs</span>
+    </div>
+    <div class="legend-group">
+      <span class="aitu-badge" style="position:static; display:inline-block;">AITU</span>
+      <span>AITU student</span>
+    </div>
+  </div>
+
+  <div class="cases-section">
+    <div class="cases-header">
+      <span>Investigation Cases (Click to Solve)</span>
+      <button class="btn-reset" id="btn-reset">Reset Party</button>
+    </div>
+
+    <div class="cases-grid">
+      <button class="case-btn" data-case="1">1. Who is in the hall?</button>
+      <button class="case-btn" data-case="2">2. Who is dressed in yellow or purple?</button>
+      <button class="case-btn" data-case="3">3. Which AITU students are upstairs?</button>
+      <button class="case-btn" data-case="4">4. Who has glasses or a bag?</button>
+      <button class="case-btn" data-case="5">5. Who came with nothing at all?</button>
+      <button class="case-btn" data-case="6">6. Who has a phone but no bag?</button>
+      <button class="case-btn" data-case="7">7. Arrived 20:30 - 21:00 (included)?</button>
+      <button class="case-btn" data-case="8">8. Arrived after 21:00 &amp; not AITU?</button>
+      <button class="case-btn" data-case="9">9. Who stands right next to Askar?</button>
+      <button class="case-btn" data-case="10">10. Who stands last in each room?</button>
+      <button class="case-btn" data-case="11">11. Who stands third in each room?</button>
+      <button class="case-btn" data-case="12">12. Who stands after Timur in his room?</button>
+      <button class="case-btn" data-case="13">13. Who stands right before someone in black?</button>
+      <button class="case-btn" data-case="14">14. In which room is Aruzhan?</button>
+      <button class="case-btn" data-case="15">15. Rooms with fewer than 6 guests?</button>
+      <button class="case-btn" data-case="16">16. Room with cup but no glasses?</button>
+      <button class="case-btn" data-case="17">17. Who came first to each room?</button>
+      <button class="case-btn" data-case="18">18. Miras joins between Askar &amp; Inkar</button>
+      <button class="case-btn" data-case="19">19. Natasha says goodbye &amp; leaves</button>
+      <button class="case-btn" data-case="20">20. Who took the cake? (The Thief)</button>
+    </div>
+
+    <div class="results-panel" id="results-panel" style="display: none;">
+      <div class="results-title" id="results-title"></div>
+      <div class="results-chain" id="results-chain"></div>
+      <div class="results-count" id="results-count"></div>
+      <div class="results-names" id="results-names"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
